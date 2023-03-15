@@ -231,6 +231,13 @@ export default env => {
           assetsPath,
         },
       }),
+      new Repack.plugins.ModuleFederationPlugin({
+        name: 'host',
+        shared: {
+          react: Repack.Federated.SHARED_REACT,
+          'react-native': Repack.Federated.SHARED_REACT_NATIVE,
+        },
+      }),
     ],
   };
 };
